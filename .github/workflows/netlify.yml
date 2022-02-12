@@ -20,9 +20,9 @@ jobs:
           npm ci
           npm run build
 
-      - name: move netlify to dist
-        run: |
-          cp ./netlify.toml ./dist/todo-app
+      # - name: move netlify to dist
+      #   run: |
+      #     cp ./netlify.toml ./dist/todo-app
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
