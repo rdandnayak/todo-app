@@ -20,6 +20,10 @@ jobs:
           npm ci
           npm run build
 
+      - name: move netlify to dist
+        run: |
+          cp ./netlify.yml ./dist
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
