@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # ( Build to ./dist or other directory... )
       - name: Node 14
         uses: actions/setup-node@v1
         with:
