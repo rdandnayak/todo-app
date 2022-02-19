@@ -3,6 +3,9 @@
   "ignorePatterns": [
     "projects/**/*"
   ],
+  "plugins": [
+    "prettier"
+  ],
   "overrides": [
     {
       "files": [
@@ -16,10 +19,12 @@
         "createDefaultProgram": true
       },
       "extends": [
+        "prettier",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "prettier/prettier": "error",
         "@angular-eslint/component-selector": [
           "error",
           {

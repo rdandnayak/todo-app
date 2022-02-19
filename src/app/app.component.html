@@ -1,2 +1,21 @@
 <h2>What do you want to do today</h2>
 <input type="text" #todoInput />
+
+<ul>
+  <li *ngFor="let todo of todoList$ | async">
+    <input
+      type="checkbox"
+      [checked]="todo.state === todoSate.COMPLETED"
+      [value]="todo.id"
+      (change)="toggleTodo($event)"
+    />
+    <span [class.strikethrough]="todo.state === todoSate.COMPLETED">{{
+      todo.text
+    }}</span>
+    <a href="" (click)="deleteTodo($event, todo.id)">delete</a>
+  </li>
+</ul>
+<div>{{ remainingTasks$ | async }} tasks Left</div>
+<a (click)="clearCompletedTasks($event)">
+  clear {{ completedTasks$ | async }} completed tasks</a
+>
