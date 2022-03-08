@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "module": "es2020",
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "importHelpers": true,
     "target": "es2015",
     "lib": [
@@ -17,6 +18,7 @@
     ]
   },
   "angularCompilerOptions": {
+    "strictTemplates": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }
