@@ -7,21 +7,15 @@ import {
   ElementRef,
   OnChanges,
 } from '@angular/core'
-import { TodoService, TodoState } from './todo.service'
+import { TodoService } from './todo.service'
 import {
   fromEvent,
-  BehaviorSubject,
-  Observable,
   Subject,
-  combineLatest,
 } from 'rxjs'
 import {
   debounceTime,
   distinctUntilChanged,
   filter,
-  map,
-  switchMap,
-  take,
   takeUntil,
   tap,
 } from 'rxjs/operators'
@@ -52,6 +46,7 @@ export class AppComponent
     fromEvent(this.todoInput.nativeElement, 'keyup')
       .pipe(
         debounceTime(150),
+        tap(e => console.log(e)),
         filter((e: KeyboardEvent) => e.keyCode === 13),
         distinctUntilChanged(),
         takeUntil(this.destroy$)
