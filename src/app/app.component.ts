@@ -7,7 +7,6 @@ import {
   ElementRef,
   OnChanges,
 } from '@angular/core'
-import { TodoService } from './todo.service'
 import {
   fromEvent,
   Subject,
@@ -19,17 +18,18 @@ import {
   takeUntil,
   tap,
 } from 'rxjs/operators'
+import { AppFacadeService } from './app-facade.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [ TodoService ]
+  providers: [ AppFacadeService ]
 })
 export class AppComponent
   implements AfterViewInit, OnDestroy, OnInit, OnChanges
 {
-  constructor(private facade: TodoService) {}
+  constructor(private facade: AppFacadeService) {}
   public todoList$ = this.facade.todoList$
   public remainingTasks$ = this.facade.remainingTasks$
   public completedTasks$ = this.facade.completedTasks$
